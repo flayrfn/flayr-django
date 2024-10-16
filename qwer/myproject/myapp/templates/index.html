@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #495057;
+        }
+        h1 {
+            text-align: center;
+            color: #343a40;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none; 
+            padding: 0; 
+            margin: 0;
+        }
+        li {
+            background-color: #d1ecf1; 
+            border: 1px solid #bee5eb; 
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: transform 0.2s, box-shadow 0.2s; 
+        }
+        li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .create-link {
+            display: block; 
+            text-align: center;
+            background-color: #007bff; 
+            color: white; 
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none; 
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 30px 0; 
+        }
+        .create-link:hover {
+            background-color: #0056b3; 
+            transform: translateY(-2px);
+        }
+        .button-container {
+            display: flex; 
+            justify-content: center; 
+            margin-top: 20px; 
+        }
+        .clear-link {
+            text-align: center;
+            background-color: #28a745; 
+            color: white; 
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none; 
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            flex: 1; 
+            margin: 0 10px; 
+        }
+        .clear-link:hover {
+            background-color: #218838; 
+            transform: translateY(-2px);
+        }
+        input[type="submit"] {
+            background-color: #dc3545; 
+            color: white; 
+            border: none; 
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        input[type="submit"]:hover {
+            background-color: #c82333; 
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Відгуки</h1>
+        <ul>
+            {% for article in articles %}
+                <li>{{ article.title }}: {{ article.description }}</li>
+            {% empty %}
+                <li>Ще не має відгуків.</li>
+            {% endfor %}
+        </ul>
+        <a class="create-link" href="{% url 'create' %}">Написати новий відгук</a> 
+        <form action="{% url 'clear_articles' %}" method="post" style="text-align: center;">
+            {% csrf_token %}
+            <div class="button-container">
+                <a href="{% url 'create' %}" class="clear-link">Повернутись на головну</a> 
+                <input type="submit" value="Видалити усі відгуки">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
