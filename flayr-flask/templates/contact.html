@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мотоцикли Ducati</title>
+    <style>
+        /* Загальні стилі для сторінки */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0d0d0d, #2c3e50); /* Градієнт фон */
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Контейнер для контенту */
+        .container {
+            background-color: rgba(0, 0, 0, 0.8); /* Напівпрозорий чорний фон */
+            border-radius: 10px;
+            padding: 40px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Місце для зображення */
+        .image-container {
+            width: 100%;
+            height: 300px;
+            background-image: url('https://ukravto.ua/files/Text/5c1f7fdb27cd3.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        /* Стиль заголовку */
+        h1 {
+            font-size: 36px;
+            color: #fff;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Анімація для заголовку */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Текст */
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        /* Кнопка */
+        .button {
+            display: inline-block;
+            background-color: #00bcd4;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 30px;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #008c9e;
+        }
+
+        /* Футер */
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        footer a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Мотоцикли Ducati</h1>
+        <div class="image-container"></div> <!-- Місце для фото -->
+        <p>Ducati - відомий виробник мотоциклів з Італії, який славиться своїми потужними та стильними моделями. Мотоцикли Ducati відрізняються високою якістю, інноваційними технологіями та надзвичайним дизайном.</p>
+        <a href="{{ url_for('index') }}" class="button">Повернутися на головну сторінку</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Мотоцикли Ducati | <a href="#">Про нас</a></p>
+    </footer>
+</body>
+</html>
